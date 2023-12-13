@@ -1,13 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="./main.scss" />
+    <link rel="icon" href="./public/logo.svg" />
+    <title>Uzum.uz -- интернет-магазин</title>
   </head>
   <body>
-    
+    <header>
+      <div class="content container"></div>
+    </header>
+    <main class="container">
+      <div class="header"></div>
+      <div class="swiper"></div>
+      <section class="discount">
+        <h2 class="title">
+          Распродажа <img src="./public/img/titleArrow.svg" alt="arrow" />
+        </h2>
+        <div class="goods"></div>
+      </section>
+      <div class="swiper"></div>
+      <section class="electronics">
+        <h2 class="title">
+          Электроника <img src="./public/img/titleArrow.svg" alt="arrow" />
+        </h2>
+        <div class="goods"></div>
+      </section>
+      <div class="swiper"></div>
+      <section class="furniture">
+        <h2 class="title">
+          Гарнитура <img src="./public/img/titleArrow.svg" alt="arrow" />
+        </h2>
+        <div class="goods"></div>
+      </section>
+    </main>
+    <footer class="container"></footer>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

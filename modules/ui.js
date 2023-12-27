@@ -10,11 +10,21 @@ export function header_create(place) {
   let language = document.createElement("a");
   let languageImg = document.createElement("img");
 
+  let region =
+    localStorage.getItem("region") === null
+      ? "Выбрать"
+      : localStorage.getItem("region");
+
   left.classList.add("left");
   right.classList.add("right");
-  give.classList.add("give");
+  orders.dataset.contact = "";
+  city.dataset.regions = "";
+  give.setAttribute("href", "/pages/deliveryPoints/");
 
-  city.innerHTML = "Город: <span>Ташкент</span>";
+  city.innerHTML =
+    navigator.geolocation.length > 0
+      ? `Город: <span>${navigator.geolocation}</span>`
+      : `Город: <span>${region}</span>`;
   cityImg.src = "/public/img/headerLocal.svg";
   give.innerHTML = "Пункты выдачи";
   desc.innerHTML = "Доставим ваш заказ бесплатно — всего за 1 день!";
@@ -43,10 +53,13 @@ export function main_header_create(place) {
   let topRight = document.createElement("div");
   let topRightLogin = document.createElement("a");
   let topRightLoginImg = document.createElement("img");
+  let topRightLoginText = document.createElement("p");
   let topRightFavorites = document.createElement("a");
   let topRightFavoritesImg = document.createElement("img");
+  let topRightFavoritesText = document.createElement("p");
   let topRightCard = document.createElement("a");
   let topRightCardImg = document.createElement("img");
+  let topRightCardText = document.createElement("p");
   let bottom = document.createElement("div");
   let bottomP = document.createElement("a");
   let bottomPImg = document.createElement("img");
@@ -71,15 +84,18 @@ export function main_header_create(place) {
   bottomP.classList.add("bold");
   bottomP.classList.add("noAnim");
   bottomP10.classList.add("noAnim");
+  topRightLogin.dataset.contact = "active";
 
+  topRightFavorites.href = "/pages/wishes/";
+  topRightCard.href = "/pages/card/";
   topLogo.src = "/public/img/headerLogo.svg";
   topBtn.innerHTML = "Каталог";
   topBtnImg.src = "/public/img/headerCatalog.svg";
   topInput.placeholder = "Искать товары и категории";
   topInputdivImg.src = "/public/img/headerSearch.svg";
-  topRightLogin.innerHTML = "Войти";
-  topRightFavorites.innerHTML = "Избранное";
-  topRightCard.innerHTML = "Корзина";
+  topRightLoginText.innerHTML = "Войти";
+  topRightFavoritesText.innerHTML = "Избранное";
+  topRightCardText.innerHTML = "Корзина";
   topRightLoginImg.src = "/public/img/headerUser.svg";
   topRightFavoritesImg.src = "/public/img/headerFavorites.svg";
   topRightCardImg.src = "/public/img/headerCard.svg";
@@ -104,9 +120,9 @@ export function main_header_create(place) {
   topBtn.prepend(topBtnImg);
   topInputdiv.append(topInputdivImg);
   topRight.append(topRightLogin, topRightFavorites, topRightCard);
-  topRightLogin.prepend(topRightLoginImg);
-  topRightFavorites.prepend(topRightFavoritesImg);
-  topRightCard.prepend(topRightCardImg);
+  topRightLogin.append(topRightLoginImg, topRightLoginText);
+  topRightFavorites.append(topRightFavoritesImg, topRightFavoritesText);
+  topRightCard.append(topRightCardImg, topRightCardText);
   bottom.append(
     bottomP,
     bottomP1,
@@ -222,58 +238,309 @@ export function footer_create(place) {
   </div>
     `;
 }
+export function min_footer(place) {
+  place.innerHTML += `
+  <button class="btn_more">Показать ещё</button>
+  <div class="container min_footer">
+  <div class="inf">
+    <details>
+      <summary>О нас</summary>
+      <a href="#">Пункты выдачи</a>
+      <a href="#">Вакансии</a>
+    </details>
+    <details>
+      <summary>Пользователям</summary>
+      <a href="#">Связаться с нами</a>
+      <a href="#">Вопрос-ответ</a>
+    </details>
+    <details>
+      <summary>Для предпринимателей</summary>
+      <a href="#">Продавайте на Uzum</a>
+      <a href="#">Вход для продавцов</a>
+    </details>
+  </div>
+  <div class="apps">
+    <h3>Скачать приложение</h3>
+    <img src="/public/img/footerApp (1).png" alt="app" />
+    <img src="/public/img/footerApp (2).png" alt="app" />
+  </div>
+  <div class="socials">
+    <h3>Uzum в соцсетях</h3>
+    <div>
+      <div><img src="/public/img/footerInstagram.svg" alt="media" /></div>
+      <div><img src="/public/img/footerTelegram.svg" alt="media" /></div>
+      <div><img src="/public/img/footerYoutube.svg" alt="media" /></div>
+      <div><img src="/public/img/footerFacebook.svg" alt="media" /></div>
+    </div>
+  </div>
+  <div class="more">
+    <a href="#">Соглашение о конфиденциальности</a>
+    <a href="#">Пользовательское соглашение</a>
+    <p>«2023© ИП ООО «UZUM MARKET». ИНН 309376127. Все права защищены»</p>
+  </div>
+</div>`;
+}
 
 export function reload_goods(arr, place, text) {
   place.innerHTML = "";
-    for (let item of arr) {
-      let good = document.createElement("div");
-      let div = document.createElement("div");
-      let img = document.createElement("img");
-      let imgLike = document.createElement("img");
-      let imgtext = document.createElement("div");
-      let title = document.createElement("h3");
-      let rating = document.createElement("div");
-      let ratingImg = document.createElement("img");
-      let raitngText = document.createElement("p");
-      let partPayment = document.createElement("div");
-      let overallPrice = document.createElement("div");
-      let overallPricePrice = document.createElement("div");
-      let overallPricePriceP = document.createElement("p");
-      let overallPricePriceH4 = document.createElement("h4");
-      let overallPriceCircle = document.createElement("div");
-      let overallPriceCircleImg = document.createElement("img");
-      let discount = (item.price / 100) * item.salePercentage;
-      let discountPrice = item.price - discount;
+  for (let item of arr) {
+    let good = document.createElement("div");
+    let div = document.createElement("div");
+    let img = document.createElement("img");
+    let imgLike = document.createElement("img");
+    let imgtext = document.createElement("div");
+    let title = document.createElement("h3");
+    let rating = document.createElement("div");
+    let ratingImg = document.createElement("img");
+    let raitngText = document.createElement("p");
+    let partPayment = document.createElement("div");
+    let overallPrice = document.createElement("div");
+    let overallPricePrice = document.createElement("div");
+    let overallPricePriceP = document.createElement("p");
+    let overallPricePriceH4 = document.createElement("h4");
+    let overallPriceCircle = document.createElement("div");
+    let overallPriceCircleImg = document.createElement("img");
+    let discount = (item.price / 100) * item.salePercentage;
+    let discountPrice = item.price - discount;
 
-      good.classList.add("good");
-      div.classList.add("imgDiv");
-      imgLike.classList.add("like");
-      rating.classList.add("rating");
-      partPayment.classList.add("part_payment");
-      overallPrice.classList.add("overall_price");
-      overallPricePrice.classList.add("price");
-      overallPriceCircle.classList.add("circle");
+    good.classList.add("good");
+    div.classList.add("imgDiv");
+    imgLike.classList.add("like");
+    rating.classList.add("rating");
+    partPayment.classList.add("part_payment");
+    overallPrice.classList.add("overall_price");
+    overallPricePrice.classList.add("price");
+    overallPriceCircle.classList.add("circle");
 
-      img.src = item.media[0];
-      imgLike.src = "/public/img/like.svg";
-      imgtext.innerHTML = text;
-      item.title.length < 40
-        ? (title.innerHTML = item.title)
-        : (title.innerHTML = item.title.slice(0, 40) + " ...");
-      ratingImg.src = "/public/img/star.svg";
-      raitngText.innerHTML = item.rating + ` (${item.rating} баллов)`;
-      partPayment.innerHTML = Math.round(discountPrice / 12) + "сум/мес";
-      overallPricePriceP.innerHTML = item.price + " сум";
-      overallPricePriceH4.innerHTML = Math.round(discountPrice) + " сум";
-      overallPriceCircleImg.src = "/public/img/card.svg";
+    img.src = item.media[0];
+    imgLike.src = "/public/img/like.svg";
+    imgtext.innerHTML = text;
+    item.title.length < 40
+      ? (title.innerHTML = item.title)
+      : (title.innerHTML = item.title.slice(0, 40) + " ...");
+    ratingImg.src = "/public/img/star.svg";
+    raitngText.innerHTML = item.rating + ` (${item.rating} баллов)`;
+    partPayment.innerHTML = Math.round(discountPrice / 12) + "сум/мес";
+    overallPricePriceP.innerHTML = item.price + " сум";
+    overallPricePriceH4.innerHTML = Math.round(discountPrice) + " сум";
+    overallPriceCircleImg.src = "/public/img/card.svg";
 
-      place.append(good);
-      good.append(div, title, rating, partPayment, overallPrice);
-      div.append(img, imgLike, imgtext);
-      rating.append(ratingImg, raitngText);
-      overallPrice.append(overallPricePrice, overallPriceCircle);
-      overallPricePrice.append(overallPricePriceP, overallPricePriceH4);
-      overallPriceCircle.append(overallPriceCircleImg);
-    }
-  
+    place.append(good);
+    good.append(div, title, rating, partPayment, overallPrice);
+    div.append(img, imgLike, imgtext);
+    rating.append(ratingImg, raitngText);
+    overallPrice.append(overallPricePrice, overallPriceCircle);
+    overallPricePrice.append(overallPricePriceP, overallPricePriceH4);
+    overallPriceCircle.append(overallPriceCircleImg);
+
+    good.onclick = () => {
+      location.assign("/pages/good/?good_id=" + item.id);
+    };
+  }
+}
+
+export function regions_reload(arr, place, text, mw) {
+  place.innerHTML = "";
+  for (let item of arr) {
+    let p = document.createElement("div");
+    p.innerHTML = item.title;
+    place.append(p);
+
+    p.onclick = () => {
+      text.innerHTML = p.innerHTML;
+      mw.classList.remove("modal_contacts_anim");
+      mw.classList.add("modal_contacts_anim1");
+      document.body.style.overflowY = "scroll";
+
+      let chosedRegion = document.querySelector("header .left a span");
+      localStorage.setItem("region", chosedRegion.innerHTML);
+    };
+  }
+}
+export function select_reload(arr, place) {
+  place.innerHTML = "";
+  for (let item of arr) {
+    let option = document.createElement("option");
+    option.value = item.title;
+    option.innerHTML = item.title;
+
+    place.append(option);
+  }
+}
+export function reload_about_good(object, place) {
+  let top = document.createElement("top");
+  let block_img = document.createElement("div");
+  let block_img_min = document.createElement("div");
+  let img = document.createElement("img");
+  let block_inf = document.createElement("div");
+  let inf_top = document.createElement("div");
+  let inf_top_left = document.createElement("div");
+  let rating = document.createElement("p");
+  let order_count = document.createElement("p");
+  let inf_top_right = document.createElement("div");
+  let wishImg = document.createElement("img");
+  let wishP = document.createElement("p");
+  let title = document.createElement("h2");
+  let sailer_inf = document.createElement("div");
+  let sailer_title = document.createElement("p");
+  let sailer = document.createElement("p");
+  let delivery_inf = document.createElement("div");
+  let delivery_div = document.createElement("div");
+  let delivery_title = document.createElement("p");
+  let delivery_title_img = document.createElement("img");
+  let delivery = document.createElement("p");
+  let colorsP = document.createElement("h4");
+  let colors_div = document.createElement("div");
+  let countP = document.createElement("h4");
+  let count_block = document.createElement("div");
+  let count_count = document.createElement("div");
+  let minus = document.createElement("p");
+  let count = document.createElement("h5");
+  let plus = document.createElement("p");
+  let overall_has = document.createElement("div");
+  let overall_img = document.createElement("img");
+  let overallP = document.createElement("p");
+  let priceP = document.createElement("h4");
+  let price_inf = document.createElement("div");
+  let discount_price = document.createElement("h6");
+  let old_price = document.createElement("p");
+  let sale_div = document.createElement("div");
+  let part_pay_block = document.createElement("div");
+  let part_p = document.createElement("p");
+  let part_img = document.createElement("img");
+  let btns = document.createElement("div");
+  let add_busket_btn = document.createElement("button");
+  let buy_one_click = document.createElement("button");
+  let people_bought = document.createElement("div");
+  let bottom = document.createElement("div");
+  let bottom_top = document.createElement("div");
+  let descP = document.createElement("p");
+  let viewsP = document.createElement("p");
+  let desc = document.createElement("div");
+  let views = document.createElement("div");
+  let views_div = document.createElement("div");
+
+  let sal_per = (object.price / 100) * object.salePercentage;
+  let dis_price = object.price - sal_per;
+
+  object.media.slice(0, 3).forEach((min_img) => {
+    let img = document.createElement("img");
+    img.classList.add("min_img");
+    img.src = min_img;
+    block_img_min.append(img);
+  });
+  object.colors.forEach((color) => {
+    let div = document.createElement("div");
+    div.style.backgroundColor = color;
+    colors_div.append(div);
+  });
+
+  top.classList.add("top");
+  block_img.classList.add("block_img");
+  block_img_min.classList.add("block_img_min");
+  block_inf.classList.add("block_inf");
+  inf_top.classList.add("inf_top");
+  inf_top_left.classList.add("inf_top_left");
+  inf_top_right.classList.add("inf_top_right");
+  sailer_inf.classList.add("sailer_inf");
+  delivery_inf.classList.add("delivery_inf");
+  delivery_div.classList.add("delivery_div");
+  count_block.classList.add("count_block");
+  count_count.classList.add("count_count");
+  overall_has.classList.add("overall_has");
+  price_inf.classList.add("price_inf");
+  part_pay_block.classList.add("part_pay_block");
+  btns.classList.add("btns");
+  add_busket_btn.classList.add("add_busket_btn");
+  buy_one_click.classList.add("buy_one_click");
+  bottom.classList.add("bottom");
+  bottom_top.classList.add("bottom_top");
+  descP.classList.add("descP");
+  viewsP.classList.add("viewsP");
+  descP.classList.add("chose");
+  desc.classList.add("desc");
+  views.classList.add("views");
+  desc.classList.add("show");
+  people_bought.classList.add("people_bought");
+  colors_div.classList.add("colors_div");
+
+  img.src = object.media[0];
+  rating.innerHTML = `<img src="/public/img/star.svg">${object.rating}(15 отзывов)`;
+  order_count.innerHTML = "Более 1000 заказов";
+  wishImg.src = "/public/img/like.svg";
+  wishP.innerHTML = "В желания";
+  title.innerHTML = object.title;
+  sailer_title.innerHTML = "Продавец:";
+  sailer.innerHTML = "--";
+  delivery_title.innerHTML = "Доставка:";
+  delivery_title_img.src = "/public/img/good_deliver.svg";
+  delivery.innerHTML = "1 день, бесплатно";
+  colorsP.innerHTML = "Цвет:";
+  countP.innerHTML = "Количество:";
+  minus.innerHTML = "&minus;";
+  count.innerHTML = "1";
+  plus.innerHTML = "&plus;";
+  overall_img.src = "/public/img/good_count_img.svg";
+  overallP.innerHTML = "Осталось всего 2";
+  priceP.innerHTML = "Цена:";
+  discount_price.innerHTML = Math.round(dis_price) + " сум";
+  old_price.innerHTML = object.price + " сум";
+  sale_div.innerHTML = "Акция";
+  part_p.innerHTML = `<span>От ${Math.round(
+    dis_price / 12
+  )} сум/мес</span> в рассрочку`;
+  part_img.src = "/public/img/titleArrow.svg";
+  add_busket_btn.innerHTML = "Добавить в корзину";
+  buy_one_click.innerHTML = "Купить в 1 клик";
+  people_bought.innerHTML = `<img src="/public/img/good_bought.svg">4217 человек купили на этой неделе`;
+  descP.innerHTML = "Описание";
+  viewsP.innerHTML = "Отзывы (15)";
+  desc.innerHTML = object.description;
+
+  views.append(views_div, views_div);
+  bottom_top.append(descP, viewsP);
+  bottom.append(bottom_top, desc, views);
+  btns.append(add_busket_btn, buy_one_click);
+  part_pay_block.append(part_p, part_img);
+  price_inf.append(discount_price, old_price, sale_div);
+  overall_has.append(overall_img, overallP);
+  count_count.append(minus, count, plus);
+  count_block.append(count_count, overall_has);
+  delivery_div.append(delivery_title, delivery_title_img);
+  delivery_inf.append(delivery_div, delivery);
+  sailer_inf.append(sailer_title, sailer);
+  inf_top_right.append(wishImg, wishP);
+  inf_top_left.append(rating, order_count);
+  inf_top.append(inf_top_left, inf_top_right);
+  block_inf.append(
+    inf_top,
+    title,
+    sailer_inf,
+    delivery_inf,
+    colorsP,
+    colors_div,
+    countP,
+    count_block,
+    priceP,
+    price_inf,
+    part_pay_block,
+    btns,
+    people_bought
+  );
+  block_img.append(block_img_min, img);
+  top.append(block_img, block_inf);
+  place.append(top, bottom);
+
+  descP.onclick = () => {
+    viewsP.classList.remove("chose");
+    descP.classList.add("chose");
+    desc.classList.add("show");
+    views.classList.remove("show");
+  };
+  viewsP.onclick = () => {
+    descP.classList.remove("chose");
+    viewsP.classList.add("chose");
+    desc.classList.remove("show");
+    views.classList.add("show");
+  };
 }

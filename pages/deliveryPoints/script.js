@@ -1,99 +1,59 @@
-import { getData } from "./modules/helpers";
+import { getData } from "../../modules/helpers";
 import {
   footer_create,
   header_create,
   main_header_create,
-  media_header,
-  min_footer,
   regions_reload,
-  reload_goods,
-} from "./modules/ui";
+  select_reload,
+} from "../../modules/ui";
 
 let header = document.querySelector("header .content");
 let mainHeader = document.querySelector("main .header");
 let footer = document.querySelector("footer");
-let discountGoodsPlace = document.querySelector(".discount .goods");
-let devicesPlace = document.querySelector(".electronics .goods");
-let furniturePlace = document.querySelector(".furniture .goods");
-let forTop = document.querySelector(".forTop");
-let discountGoods = [];
-let devices = [];
-let furnitures = [];
+let del_points = document.querySelectorAll(".dash a");
+let cont = document.querySelector(".main .content");
+let cont2 = document.querySelector(".main .content2");
+let select = document.querySelector("select");
+let selectOptions = document.querySelectorAll("select option");
 
 if (window.innerWidth >= 950) {
   header_create(header);
   main_header_create(mainHeader);
 } else {
   media_header();
-};
-
-if (window.innerWidth <= 500) {
-  min_footer(footer);
-  getData("/goods").then((res) => {
-    res.data.forEach((item) => {
-      if (item.salePercentage !== 0) {
-        discountGoods.push(item);
-      }
-      if (item.type === "PC" || item.type === "audio" || item.type === "TV") {
-        devices.push(item);
-      }
-      if (item.type === "furniture" || item.type === "kitchen") {
-        furnitures.push(item);
-      }
-    });
-    reload_goods(discountGoods.slice(0, 14), discountGoodsPlace, "Распродажа");
-    reload_goods(devices.slice(0, 14), devicesPlace, "Электроника");
-    reload_goods(furnitures.slice(0, 14), furniturePlace, "Гарнитура");
-  });
-} else {
-  // scroll arrow
-  window.onscroll = () => {
-    if (window.scrollY < 700) {
-      forTop.classList.remove("show");
-    } else {
-      forTop.classList.add("show");
-    }
-  };
-  forTop.onclick = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  };
-
-  footer_create(footer);
-  getData("/goods").then((res) => {
-    res.data.forEach((item) => {
-      if (item.salePercentage !== 0) {
-        discountGoods.push(item);
-      }
-      if (item.type === "PC" || item.type === "audio" || item.type === "TV") {
-        devices.push(item);
-      }
-      if (item.type === "furniture" || item.type === "kitchen") {
-        furnitures.push(item);
-      }
-    });
-    reload_goods(discountGoods.slice(0, 15), discountGoodsPlace, "Распродажа");
-    reload_goods(devices.slice(0, 15), devicesPlace, "Электроника");
-    reload_goods(furnitures.slice(0, 15), furniturePlace, "Гарнитура");
-  });
 }
+footer_create(footer);
 
-// Swiper
-var swiper = new Swiper(".mySwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+let chosed = 0;
+del_points[0].classList.add("black");
+cont.classList.add("show");
+del_points.forEach((del, idx) => {
+  del.onclick = () => {
+    del_points[chosed].classList.remove("black");
+    del_points[chosed].removeAttribute("data-chosed");
+    del_points[idx].classList.add("black");
+    del_points[idx].setAttribute("data-chosed", "");
+
+    let chosedPoint = document.querySelector("[data-chosed]");
+    console.log(chosedPoint);
+    if (chosedPoint.getAttribute("id") === "del") {
+      cont2.classList.remove("show");
+      cont.classList.add("show");
+    } else {
+      cont.classList.remove("show");
+      cont2.classList.add("show");
+    }
+
+    chosed = idx;
+  };
 });
+
+// regions select
+getData("/regions").then((res) => {
+  if (res.status !== 200 && res.status !== 201) return;
+  select_reload(res.data, select);
+});
+
 // modal_contacts
 let contactModalActive = document.querySelectorAll("[data-contact]");
 let contactModal = document.querySelector(".modal_contacts");

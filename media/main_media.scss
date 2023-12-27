@@ -1,0 +1,157 @@
+@media (max-width: 1300px) {
+  .container {
+    width: 95%;
+  }
+  main {
+    .header {
+      .top {
+        .right {
+          a {
+            img {
+              margin: 0 5px;
+            }
+            p {
+              display: none;
+            }
+          }
+        }
+      }
+      .bottom {
+        a {
+          &:nth-child(8),
+          &:nth-child(9),
+          &:nth-child(10) {
+            display: none;
+          }
+        }
+      }
+    }
+    .discount .goods,
+    .electronics .goods,
+    .furniture .goods {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+@media (max-width: 1100px) {
+  header {
+    .content {
+      p {
+        display: none;
+      }
+    }
+  }
+  main {
+    .header {
+      .top {
+        .right {
+          a {
+            img {
+              margin: 0;
+            }
+          }
+        }
+        .center {
+          input {
+            width: 300px;
+          }
+          div {
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 950px) {
+  main {
+    .discount .goods,
+    .electronics .goods,
+    .furniture .goods {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  footer {
+    padding-bottom: 100px;
+    .bottom {
+      div {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  main {
+    .discount .goods,
+    .electronics .goods,
+    .furniture .goods {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  footer {
+    .top {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+    .bottom {
+      div {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+      }
+      flex-direction: column;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    width: 85%;
+  }
+  main {
+    .discount,
+    .electronics,
+    .furniture {
+      justify-content: center;
+      align-items: center;
+      .goods {
+        grid-template-columns: repeat(1, 300px);
+        justify-content: center;
+        align-items: center;
+        .good {
+          width: 300px;
+          .imgDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+  .btn_more {
+    width: 300px;
+  }
+  footer {
+    .top {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+@media (max-width: 400px) {
+    .media_header{
+        div {
+            img {
+                width: 25px;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}

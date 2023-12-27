@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Пункт выдачи | Uzum</title>
+    <link rel="icon" href="/public/logo.svg" />
+
+    <link rel="stylesheet" href="../../main.scss" />
+    <link rel="stylesheet" href="./style.scss" />
+  </head>
+  <body>
+    <header class="container"><div class="content"></div></header>
+    <main class="container">
+      <div class="header"></div>
+      <h2>Uzum</h2>
+      <div class="main">
+        <div class="dash">
+          <a id="del" href="#">Пункт выдачи</a>
+          <a id="job" href="#">Вакансии</a>
+        </div>
+        <div class="content">
+          <div class="top">
+            <h2>Пункты выдачи</h2>
+            <p>
+              Бесплатная доставка за сутки в пункты выдачи в 72 городах
+              Узбекистана
+            </p>
+          </div>
+          <div class="bottom">
+            <div class="left">
+              <div class="top">
+                <p>Город</p>
+                <select></select>
+              </div>
+              <div class="bottom">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div class="right"><img src="/public/img/map.png" alt="map" /></div>
+          </div>
+        </div>
+        <div class="content2">
+          <div class="top">
+            <h2>ВАКАНСИИ</h2>
+            <p>
+              Хотите быть частью команды Uzum Market? Расскажите почему вы нам
+              подходите и <br />
+              отправляйте свое резюме
+            </p>
+          </div>
+          <div class="btns">
+            <a
+              href="https://tashkent.hh.uz/employer/6132255?hhtmFrom=vacancy"
+              target="_blank"
+              ><button>ХОЧУ РАБОТАТЬ В UZUM MARKET</button></a
+            >
+            <a id="bot" href="https://t.me/Uzum_jbot" target="_blank"
+              ><button id="bot">Telegram bot - @Uzum_jbot</button></a
+            >
+          </div>
+          <p class="text">
+            Профили работ в которых вы можете найти, то, что вам подходит:
+          </p>
+          <nav>
+            <ul>
+              <li>- Бухгалтерия и финансы</li>
+              <li>- Доставка Uzum Market</li>
+              <li>- Административный персонал</li>
+              <li>- Складская логистика</li>
+              <li>- Контактный центр</li>
+              <li>- Управление персоналом</li>
+            </ul>
+          </nav>
+          <p class="text">
+            Если у нас пока не открыта вакансия Вашей мечты - присылайте свое
+            резюме в резерв, удобным для Вас способом:
+          </p>
+          <br />
+          <a href="https://t.me/HR_UZUM" target="_blank"
+            >Telegram: <span>@HR_UZUM</span>
+          </a>
+          <br />
+          <a href="https://mail.google.com/mail/u/0/" target="_blank">
+            Email: <span>hr-market@uzum.com</span></a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="container"></footer>
+
+     <!-- contacts modal -->
+   <div class="modal_contacts">
+    <div class="bg" data-contact_cancel></div>
+    <div class="content">
+      <p class="exit" data-contact_cancel>&times;</p>
+      <form name="customerContact">
+        <h3>Введите номер телефона</h3>
+        <p>Отправим смс с кодом подтверждения</p>
+        <div class="inp">
+          <input placeholder="Номер телефона" type="tel" id="phone" pattern="^[0-9]$" name="phone" />
+          <span>Неверный формат номера</span>
+        </div>
+        <button>Получить код</button>
+   
+        <p class="text"></p>
+          Авторизуясь, вы соглашаетесь c
+          <a href="#">политикой обработки персональных данных</a>
+        </p>
+      </form>
+    </div>
+   </div>
+
+
+    
+    <!-- region modal -->
+    <div class="modal_regions">
+      <div class="bg" data-regions_cancel></div>
+      <div class="content">
+        <p class="exit" data-regions_cancel>&times;</p>
+        <h2>Выберите город доставки</h2>
+        <p>Бесплатная доставка на следующий день в 72 города Узбекистана:</p>
+        <input type="text" placeholder="Найти город">
+        <div class="regions"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

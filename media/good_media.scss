@@ -1,0 +1,489 @@
+@media (max-width: 1200px) {
+  main {
+    .about_good {
+      .top {
+        .block_inf {
+          .btns {
+            .add_busket_btn {
+              width: 250px;
+            }
+            .buy_one_click {
+              width: 250px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 1100px) {
+  main {
+    .about_good {
+      .top {
+        .block_inf {
+          .btns {
+            .add_busket_btn {
+              width: 200px;
+            }
+            .buy_one_click {
+              width: 200px;
+            }
+          }
+        }
+      }
+    }
+    .same_goods {
+      .goods {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  main {
+    .about_good {
+      .top {
+        .block_inf {
+          .btns {
+            .add_busket_btn {
+              width: 200px;
+              font-size: 14px;
+            }
+            .buy_one_click {
+              width: 200px;
+              font-size: 14px;
+            }
+          }
+          .price_inf {
+            h6 {
+              font-size: 16px;
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    .same_goods {
+      .goods {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    .about_good {
+      .top {
+        .block_inf {
+          h2 {
+            font-size: 16px;
+          }
+          .inf_top {
+            .inf_top_left {
+              p {
+                font-size: 12px;
+              }
+            }
+            .inf_top_right {
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+          .part_pay_block {
+            p {
+              font-size: 12px;
+            }
+          }
+          .sailer_inf {
+            p {
+              font-size: 12px;
+            }
+          }
+          .colors_div {
+            div {
+              height: 20px;
+            }
+          }
+          h4 {
+            font-size: 12px;
+          }
+          .count_block {
+            .overall_has {
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+          .delivery_inf {
+            .delivery_div {
+              p {
+                font-size: 12px;
+              }
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+          .btns {
+            .add_busket_btn {
+              width: 150px;
+              height: 40px;
+              font-size: 14px;
+            }
+            .buy_one_click {
+              width: 150px;
+              height: 40px;
+              font-size: 14px;
+            }
+          }
+          .price_inf {
+            h6 {
+              font-size: 16px;
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+          .people_bought {
+            font-size: 12px;
+          }
+        }
+      }
+      .bottom {
+        .bottom_top {
+          p {
+            font-size: 12px;
+          }
+          .chose {
+            font-size: 12px;
+          }
+        }
+        .desc {
+          font-size: 12px;
+        }
+      }
+    }
+    .same_goods {
+      .title {
+        font-size: 18px;
+      }
+      .goods {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    .about_good {
+      width: 70%;
+      margin: 0 auto;
+      .top {
+        flex-direction: column;
+        .block_img {
+          img {
+            height: 500px;
+          }
+          .block_img_min {
+            display: none;
+          }
+        }
+        .block_inf {
+          h2 {
+            font-size: 20px;
+          }
+          .inf_top {
+            .inf_top_left {
+              p {
+                font-size: 14px;
+              }
+            }
+            .inf_top_right {
+              p {
+                font-size: 14px;
+              }
+            }
+          }
+          .part_pay_block {
+            p {
+              font-size: 14px;
+            }
+          }
+          .sailer_inf {
+            p {
+              font-size: 14px;
+            }
+          }
+          .colors_div {
+            div {
+              height: 30px;
+            }
+          }
+          h4 {
+            font-size: 14px;
+          }
+          .count_block {
+            .overall_has {
+              p {
+                font-size: 14px;
+              }
+            }
+          }
+          .delivery_inf {
+            .delivery_div {
+              p {
+                font-size: 14px;
+              }
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+          .btns {
+            .add_busket_btn {
+              width: 200px;
+              height: 50px;
+              font-size: 16px;
+            }
+            .buy_one_click {
+              width: 200px;
+              height: 50px;
+              font-size: 16px;
+            }
+          }
+          .price_inf {
+            h6 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+          .people_bought {
+            font-size: 14px;
+          }
+        }
+      }
+      .bottom {
+        .bottom_top {
+          p {
+            font-size: 14px;
+          }
+          .chose {
+            font-size: 14px;
+          }
+        }
+        .desc {
+          font-size: 14px;
+        }
+      }
+    }
+    .same_goods {
+      .title {
+        font-size: 20px;
+      }
+      .goods {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  }
+}
+@media (max-width: 650px) {
+  main {
+    .about_good {
+      .top {
+        .block_inf {
+          .btns {
+            .add_busket_btn {
+              width: 150px;
+              height: 40px;
+              font-size: 14px;
+            }
+            .buy_one_click {
+              width: 150px;
+              height: 40px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    .same_goods {
+      .title {
+        font-size: 20px;
+      }
+      .goods {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  main {
+    .about_good {
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 500px) {
+  main {
+    .about_good {
+      width: 90%;
+      .top {
+        .block_inf {
+          .inf_top {
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+          }
+          h2 {
+            font-size: 18px;
+          }
+          .part_pay_block {
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 450px) {
+  main {
+    .about_good .top .block_img img {
+      width: 100%;
+    }
+    .same_goods {
+      .title {
+        font-size: 20px;
+      }
+      .goods {
+        grid-template-columns: repeat(1, 1fr);
+        .good {
+          .imgDiv {
+            img {
+              width: 80%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    .about_good {
+      .top {
+        .block_img {
+          img {
+            width: 100%;
+            height: 500px;
+          }
+          .block_img_min {
+            display: none;
+          }
+        }
+        .block_inf {
+          gap: 10px;
+          .inf_top {
+            gap: 5px;
+          }
+          h2 {
+            font-size: 14px;
+          }
+          .inf_top {
+            .inf_top_left {
+              p {
+                font-size: 12px;
+              }
+            }
+            .inf_top_right {
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+          .part_pay_block {
+            gap: 0;
+            p {
+              font-size: 10px;
+            }
+          }
+          .sailer_inf {
+            p {
+              font-size: 12px;
+            }
+          }
+          .colors_div {
+            div {
+              height: 30px;
+            }
+          }
+          h4 {
+            font-size: 12px;
+          }
+          .count_block {
+            .overall_has {
+              p {
+                font-size: 12px;
+              }
+            }
+          }
+          .delivery_inf {
+            .delivery_div {
+              p {
+                font-size: 11px;
+              }
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+          .btns {
+            width: 100%;
+            flex-direction: column;
+            .add_busket_btn {
+              width: 100%;
+              height: 50px;
+              font-size: 12px;
+            }
+            .buy_one_click {
+              width: 100%;
+              height: 50px;
+              font-size: 12px;
+            }
+          }
+          .price_inf {
+            h6 {
+              font-size: 18px;
+            }
+            p {
+              font-size: 12px;
+            }
+          }
+          .people_bought {
+            font-size: 12px;
+          }
+        }
+      }
+      .bottom {
+        .bottom_top {
+          p {
+            font-size: 12px;
+          }
+          .chose {
+            font-size: 12px;
+          }
+        }
+        .desc {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

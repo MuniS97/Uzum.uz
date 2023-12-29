@@ -362,15 +362,27 @@ export function reload_goods(arr, place, text) {
     }
     imgLike.onclick = () => {
       let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
-
       if (wishes.includes(item.id)) {
         wishes = wishes.filter((id) => id !== item.id);
         localStorage.setItem("wishes", JSON.stringify([...wishes]));
         imgLike.src = "/public/img/like.svg";
+        good.remove();
+        setTimeout(() => {
+          let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+          let wishesPlace = document.querySelector(".all_goods");
+          let none_wishes_block = document.querySelector(".none_block");
+          wishes_checking(wishes, none_wishes_block, wishesPlace);
+        }, 0);
         return;
       }
       localStorage.setItem("wishes", JSON.stringify([...wishes, item.id]));
       imgLike.src = "/public/img/wished_like.svg";
+      setTimeout(() => {
+        let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+        let wishesPlace = document.querySelector(".all_goods");
+        let none_wishes_block = document.querySelector(".none_block");
+        wishes_checking(wishes, none_wishes_block, wishesPlace);
+      }, 0);
     };
 
     overallPriceCircleImg.onclick = () => {
@@ -391,6 +403,22 @@ export function reload_goods(arr, place, text) {
       busket_checking(none_card_block, goodsPlace, totalPlace, total_view);
     };
   }
+}
+export function wishes_checking(ids, none, place) {
+  if (ids.length === 0) {
+    none.classList.add("flex");
+    return;
+  }
+  none.classList.remove("flex");
+  let goods = [];
+  getData("/goods").then((res) => {
+    res.data.forEach((item) => {
+      if (ids.includes(item.id)) {
+        goods.push(item);
+      }
+    });
+    reload_goods(goods, place, "Акция");
+  });
 }
 
 export function regions_reload(arr, place, text, mw) {

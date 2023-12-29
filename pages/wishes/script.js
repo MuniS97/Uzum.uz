@@ -6,6 +6,7 @@ import {
   media_header,
   min_footer,
   reload_goods,
+  wishes_checking,
 } from "../../modules/ui";
 
 let header = document.querySelector("header .content");
@@ -17,23 +18,8 @@ let wishesPlace = document.querySelector(".all_goods");
 let discountGoods = [];
 
 let wished = JSON.parse(localStorage.getItem("wishes")) || [];
-let wishes_id = [];
 
-wished.forEach((wish) => wishes_id.push(wish));
-
-if (wishes_id.length === 0) {
-  none_wishes_block.classList.add("flex");
-} else {
-  let goods = [];
-  getData("/goods").then((res) => {
-    res.data.forEach((item) => {
-      if (wishes_id.includes(item.id)) {
-        goods.push(item);
-      }
-    });
-    reload_goods(goods, wishesPlace, "Акция");
-  });
-}
+wishes_checking(wished, none_wishes_block, wishesPlace)
 
 if (window.innerWidth >= 950) {
   header_create(header);

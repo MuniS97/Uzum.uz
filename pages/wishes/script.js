@@ -13,12 +13,26 @@ let mainHeader = document.querySelector("main .header");
 let footer = document.querySelector("footer");
 let discountGoodsPlace = document.querySelector(".discount .goods");
 let none_wishes_block = document.querySelector(".none_block");
+let wishesPlace = document.querySelector(".all_goods");
 let discountGoods = [];
-let wishes = [];
-if (wishes.length === 0) {
+
+let wished = JSON.parse(localStorage.getItem("wishes")) || [];
+let wishes_id = [];
+
+wished.forEach((wish) => wishes_id.push(wish));
+
+if (wishes_id.length === 0) {
   none_wishes_block.classList.add("flex");
 } else {
-  
+  let goods = [];
+  getData("/goods").then((res) => {
+    res.data.forEach((item) => {
+      if (wishes_id.includes(item.id)) {
+        goods.push(item);
+      }
+    });
+    reload_goods(goods, wishesPlace, "Акция");
+  });
 }
 
 if (window.innerWidth >= 950) {

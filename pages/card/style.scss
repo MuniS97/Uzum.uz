@@ -1,0 +1,122 @@
+.none_block {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 100px 0 80px;
+  img {
+    width: 135px;
+    height: 135px;
+  }
+  h2 {
+    color: #000;
+    font-size: 32px;
+    font-weight: 600;
+  }
+  p {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  button {
+    cursor: pointer;
+    width: 130px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7000ff;
+    font-size: 14px;
+    font-size: 500;
+    color: white;
+    &:hover {
+      opacity: 0.9;
+    }
+    &:active {
+      background-color: #5b00d1;
+    }
+  }
+}
+.card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  .content {
+    width: 70%;
+    height: fit-content;
+    padding: 40px 30px;
+    border: 1px solid black;
+    div {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      justify-content: start;
+      align-items: start;
+      gap: 30px;
+      margin-bottom: 5px;
+      img {
+        width: 20%;
+        height: 100%;
+        object-fit: contain;
+        border: 1px solid #acacac;
+        padding: 20px;
+      }
+      .inf_div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        text-align: left;
+        gap: 5px;
+        h3 {
+          color: #000;
+          font-size: 20px;
+          font-weight: 500;
+        }
+        h4 {
+          color: #000;
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .counter_div {
+          width: 16%;
+          height: fit-content;
+          border-radius: 3px;
+          border: 1px solid #acacac;
+          display: flex;
+          justify-content: space-between;
+          gap: 0;
+          align-items: center;
+          padding: 5px;
+          p {
+            color: #000;
+            font-size: 16px;
+            font-weight: 500;
+            span {
+              cursor: pointer;
+            }
+          }
+        }
+        button {
+          width: 15%;
+          height: 35px;
+          border-radius: 4px;
+          background: #eaeaf9;
+          color: #33c;
+          font-size: 13px;
+          font-weight: 500;
+          border: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .dash {
+    width: 30%;
+    height: fit-content;
+    padding: 30px;
+    border: 1px solid blue;
+  }
+}

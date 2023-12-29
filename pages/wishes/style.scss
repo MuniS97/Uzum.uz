@@ -37,3 +37,127 @@
     }
   }
 }
+.all_goods {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  column-gap: 20px;
+  .good {
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 8px;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    text-align: left;
+    padding: 10px;
+    .imgDiv {
+      position: relative;
+      img {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 8px 8px 0 0;
+      }
+      .like {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        height: 25px;
+        border-radius: 4px;
+        background: #5000aa;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+    h3 {
+      padding: 7px 0;
+      width: 100%;
+      color: #000;
+      font-size: 12.8px;
+      font-weight: 400;
+      height: 30px;
+    }
+    .rating {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      gap: 5px;
+      img {
+        width: 14px;
+        height: 14px;
+      }
+      p {
+        color: #8a8d93;
+        font-size: 11.2px;
+        font-weight: 300;
+      }
+    }
+    .part_payment {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 20px;
+      border-radius: 4px;
+      background: #ff0;
+      color: #1f1f26;
+      font-size: 11px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .overall_price {
+      width: 100%;
+      padding-top: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 20px;
+      .price {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        p {
+          color: #757575;
+          font-size: 11.2px;
+          font-weight: 400;
+          text-decoration-line: line-through;
+        }
+        h4 {
+          color: #000;
+          font-size: 14px;
+          font-weight: 500;
+        }
+      }
+      .circle {
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 1px solid #8a8d93;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}

@@ -65,8 +65,7 @@ header {
       justify-content: center;
       align-items: center;
       gap: 20px;
-      a,
-      label {
+      a {
         cursor: pointer;
         color: #62656a;
         font-size: 14px;
@@ -178,8 +177,8 @@ main {
         justify-content: center;
         align-items: center;
         gap: 7px;
-        a,
-        label {
+        a {
+          position: relative;
           text-decoration: none;
           display: flex;
           justify-content: center;
@@ -198,6 +197,18 @@ main {
           }
           &:hover {
             background-color: #e7e7e7;
+          }
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 15px;
+            height: 24px;
+            background-color: #5000aa;
+            border-radius: 5px;
+            font-size: 12px;
+            font-size: 400;
+            color: white;
           }
         }
       }
@@ -328,7 +339,8 @@ main {
       }
     }
     .goods,
-    .same_goods {
+    .same_goods,
+    .all_goods {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       justify-content: center;

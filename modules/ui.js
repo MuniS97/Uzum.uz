@@ -1,3 +1,5 @@
+import { getData } from "./helpers";
+
 export function header_create(place) {
   let left = document.createElement("div");
   let city = document.createElement("a");
@@ -60,6 +62,7 @@ export function main_header_create(place) {
   let topRightCard = document.createElement("a");
   let topRightCardImg = document.createElement("img");
   let topRightCardText = document.createElement("p");
+  let topRightCardCount = document.createElement("span");
   let bottom = document.createElement("div");
   let bottomP = document.createElement("a");
   let bottomPImg = document.createElement("img");
@@ -85,6 +88,19 @@ export function main_header_create(place) {
   bottomP.classList.add("noAnim");
   bottomP10.classList.add("noAnim");
   topRightLogin.dataset.contact = "active";
+
+  setTimeout(() => {
+    let goods = document.querySelectorAll(".circle");
+    goods.forEach((good) => {
+      good.onclick = () => {
+        let busket = JSON.parse(localStorage.getItem("card")) || [];
+        busket_count(busket, topRightCardCount);
+        topRightCardCount.innerHTML = busket.length;
+      };
+    });
+  }, 1000);
+  let busket = JSON.parse(localStorage.getItem("card")) || [];
+  busket_count(busket, topRightCardCount);
 
   topRightFavorites.href = "/pages/wishes/";
   topRightCard.href = "/pages/card/";
@@ -113,6 +129,7 @@ export function main_header_create(place) {
   bottomP10.innerHTML = "Ещё";
   bottomPImg.src = "/public/img/headerUnion.png";
   bottomP10Img.src = "/public/img/headerArrow.svg";
+  topRightCardCount.innerHTML = busket.length;
 
   place.append(top, bottom);
   top.append(topLogo, topCenter, topRight);
@@ -122,7 +139,7 @@ export function main_header_create(place) {
   topRight.append(topRightLogin, topRightFavorites, topRightCard);
   topRightLogin.append(topRightLoginImg, topRightLoginText);
   topRightFavorites.append(topRightFavoritesImg, topRightFavoritesText);
-  topRightCard.append(topRightCardImg, topRightCardText);
+  topRightCard.append(topRightCardImg, topRightCardText, topRightCardCount);
   bottom.append(
     bottomP,
     bottomP1,
@@ -333,8 +350,45 @@ export function reload_goods(arr, place, text) {
     overallPricePrice.append(overallPricePriceP, overallPricePriceH4);
     overallPriceCircle.append(overallPriceCircleImg);
 
-    good.onclick = () => {
+    img.onclick = () => {
       location.assign("/pages/good/?good_id=" + item.id);
+    };
+
+    let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+    if (wishes.includes(item.id)) {
+      imgLike.src = "/public/img/wished_like.svg";
+    } else {
+      imgLike.src = "/public/img/like.svg";
+    }
+    imgLike.onclick = () => {
+      let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+
+      if (wishes.includes(item.id)) {
+        wishes = wishes.filter((id) => id !== item.id);
+        localStorage.setItem("wishes", JSON.stringify([...wishes]));
+        imgLike.src = "/public/img/like.svg";
+        return;
+      }
+      localStorage.setItem("wishes", JSON.stringify([...wishes, item.id]));
+      imgLike.src = "/public/img/wished_like.svg";
+    };
+
+    overallPriceCircleImg.onclick = () => {
+      let card = JSON.parse(localStorage.getItem("card")) || [];
+      let goodsCount = document.querySelector("main .header .right a span");
+      let none_card_block = document.querySelector("main .none_block");
+      let goodsPlace = document.querySelector(".card .content");
+      let totalPlace = document.querySelector(".card .dash");
+      let total_view = document.querySelector(".card .dash h2");
+
+      if (card.includes(item.id)) {
+        card = card.filter((id) => id !== item.id);
+        localStorage.setItem("card", JSON.stringify([...card]));
+        return;
+      }
+      localStorage.setItem("card", JSON.stringify([...card, item.id]));
+      busket_count(card, goodsCount);
+      busket_checking(none_card_block, goodsPlace, totalPlace, total_view);
     };
   }
 }
@@ -543,4 +597,115 @@ export function reload_about_good(object, place) {
     desc.classList.remove("show");
     views.classList.add("show");
   };
+}
+
+export function busket_count(busk, count) {
+  if (busk.length === 0) {
+    count.classList.add("hide");
+  } else {
+    count.classList.remove("hide");
+    count.innerHTML = busk.length;
+  }
+}
+
+export function busket_checking(none, place1, place2, total) {
+  let busket = JSON.parse(localStorage.getItem("card")) || [];
+
+  if (busket.length === 0) {
+    none.classList.add("flex");
+    place1.classList.add("hide");
+    place2.classList.add("hide");
+  } else {
+    none.classList.remove("flex");
+    place1.classList.remove("hide");
+    place2.classList.remove("hide");
+    reload_card_item(busket, place1, total, place2, none);
+  }
+}
+
+export function reload_card_item(ids, place, total_v, place1, none) {
+  place.innerHTML = "";
+  let temp = [];
+  let allProducts = 0;
+
+  getData("/goods").then((res) => {
+    for (let item of res.data) {
+      for (let id of ids) {
+        if (id === item.id) {
+          temp.push(item);
+        }
+      }
+    }
+    for (let item of temp) {
+      allProducts += item.price;
+      total_v.innerHTML = allProducts;
+      let total = item.price;
+      let qt = 1;
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      let inf_div = document.createElement("div");
+      let title = document.createElement("h3");
+      let price = document.createElement("h4");
+      let counter_div = document.createElement("div");
+      let minus = document.createElement("p");
+      let count = document.createElement("p");
+      let plus = document.createElement("p");
+      let del = document.createElement("button");
+
+      inf_div.classList.add("inf_div");
+      counter_div.classList.add("counter_div");
+
+      img.src = item.media[0];
+      title.innerHTML = item.title;
+      price.innerHTML = item.price + " сум";
+      minus.innerHTML = "<span>&minus;</span>";
+      plus.innerHTML = "<span>&plus;</span>";
+      count.innerHTML = 1;
+      del.innerHTML = "Удалить";
+
+      place.append(div);
+      div.append(img, inf_div);
+      inf_div.append(title, price, counter_div, del);
+      counter_div.append(minus, count, plus);
+
+      plus.onclick = () => {
+        count.innerHTML = ++qt;
+
+        allProducts += item.price;
+        allProducts = +allProducts.toFixed(2);
+        total_v.innerHTML = allProducts;
+
+        total = item.price * qt;
+        total = +total.toFixed(2);
+
+        price.innerHTML = total + " сум";
+      };
+      minus.onclick = () => {
+        if (count.innerHTML === "1") return;
+        count.innerHTML = --qt;
+
+        allProducts -= item.price;
+        allProducts = +allProducts.toFixed(2);
+        total_v.innerHTML = allProducts;
+        total = item.price * qt;
+        total = +total.toFixed(2);
+
+        price.innerHTML = total + " сум";
+      };
+
+      del.onclick = () => {
+        let cards = JSON.parse(localStorage.getItem("card")) || [];
+        if (cards.includes(item.id)) {
+          cards = cards.filter((card) => card !== item.id);
+          localStorage.setItem("card", JSON.stringify([...cards]));
+          div.remove();
+        }
+        setTimeout(() => {
+          let goodsCount = document.querySelector("main .header .right a span");
+          busket_count(cards, goodsCount);
+        }, 0);
+        busket_checking(none, place, place1, total_v);
+      };
+    }
+  });
 }

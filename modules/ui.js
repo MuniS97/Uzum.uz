@@ -711,7 +711,11 @@ export function reload_card_item(ids, place, total_v, place1, none) {
       counter_div.classList.add("counter_div");
 
       img.src = item.media[0];
-      title.innerHTML = item.title;
+      if (window.innerWidth >= 700) {
+        title.innerHTML = item.title;
+      } else {
+        title.innerHTML = item.title.slice(0, 50) + " ...";
+      }
       price.innerHTML = item.price + " сум";
       minus.innerHTML = "<span>&minus;</span>";
       plus.innerHTML = "<span>&plus;</span>";

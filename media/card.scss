@@ -1,0 +1,55 @@
+@media (max-width: 900px) {
+  .card {
+    flex-direction: column;
+    .content {
+      width: 100%;
+    }
+    .dash {
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .card {
+    .content {
+      div {
+        img {
+          width: 30%;
+        }
+        .inf_div {
+          h3 {
+            font-size: 18px;
+          }
+          .counter_div {
+            width: 30%;
+          }
+          button {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .card {
+    .content {
+      div {
+        img {
+          width: 40%;
+        }
+        .inf_div {
+          h3 {
+            font-size: 18px;
+          }
+          .counter_div {
+            width: 60%;
+          }
+          button {
+            width: 55%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -41,6 +41,14 @@ if (window.innerWidth >= 950) {
 }
 if (window.innerWidth <= 500) {
   min_footer(footer);
+  getData("/goods").then((res) => {
+    res.data.forEach((item) => {
+      if (item.salePercentage !== 0) {
+        discountGoods.push(item);
+      }
+    });
+    reload_goods(discountGoods.slice(0, 6), discountGoodsPlace, "Акция");
+  });
 } else {
   // scroll arrow
   window.onscroll = () => {

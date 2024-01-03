@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../../main.scss" />
     <link rel="stylesheet" href="./style.scss" />
+    <link rel="stylesheet" href="../../media/main_media.scss">
+    <link rel="stylesheet" href="../../media/deliveryPoints.scss">
   </head>
   <body>
     <header class="container"><div class="content"></div></header>
@@ -117,20 +119,16 @@
       </form>
     </div>
    </div>
+     <!-- catalog place -->
+     <div class="container catalog"></div>
 
-
+     <!-- contacts modal -->
+     <div class="modal_contacts"></div>
+ 
+     <!-- region modal -->
+     <div class="modal_regions"></div>
     
-    <!-- region modal -->
-    <div class="modal_regions">
-      <div class="bg" data-regions_cancel></div>
-      <div class="content">
-        <p class="exit" data-regions_cancel>&times;</p>
-        <h2>Выберите город доставки</h2>
-        <p>Бесплатная доставка на следующий день в 72 города Узбекистана:</p>
-        <input type="text" placeholder="Найти город">
-        <div class="regions"></div>
-      </div>
-    </div>
+    <img class="forTop" src="/public/arrawTop.svg" alt="" />
 
     <script type="module" src="./script.js"></script>
   </body>

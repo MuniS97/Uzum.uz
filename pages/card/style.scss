@@ -37,12 +37,24 @@
     }
   }
 }
+.text {
+  display: none;
+  text-align: left;
+  color: #1b1a1a;
+  font-size: 25px;
+  font-weight: 500;
+  padding-bottom: 20px;
+  span {
+    color: gray;
+  }
+}
 .card {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: start;
   gap: 20px;
+
   .content {
     width: 70%;
     height: fit-content;

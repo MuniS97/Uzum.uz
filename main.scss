@@ -518,12 +518,14 @@ footer {
         justify-content: start;
         align-items: center;
         gap: 10px;
-        div {
+        a {
+          text-decoration: none;
           cursor: pointer;
           img {
             width: 30px;
             height: 30px;
             object-fit: cover;
+            cursor: pointer;
           }
           p {
             color: #1f1f26;
@@ -630,7 +632,7 @@ footer {
 .modal_contacts {
   width: 100%;
   position: absolute;
-  top: -100%;
+  top: -200%;
   left: 50%;
   translate: -50% -50%;
   z-index: 10;
@@ -752,7 +754,7 @@ footer {
 .modal_regions {
   width: 100%;
   position: absolute;
-  top: -100%;
+  top: -200%;
   left: 50%;
   translate: -50% -50%;
   z-index: 10;
@@ -868,13 +870,13 @@ footer {
     top: 50%;
   }
   to {
-    top: -100%;
+    top: -200%;
   }
 }
 
 @keyframes modal_contacts_anim {
   from {
-    top: -100%;
+    top: -200%;
   }
   to {
     top: 50%;
@@ -976,6 +978,167 @@ footer {
     }
     p {
       font-size: 12px;
+    }
+  }
+}
+@keyframes catalog_anim_down {
+  from {
+    top: -700%;
+  }
+  to {
+    top: 95px;
+  }
+}
+@keyframes catalog_anim_up {
+  from {
+    top: 95px;
+  }
+  to {
+    top: -700%;
+  }
+}
+.catalog_anim_act {
+  animation: catalog_anim_down 0.3s forwards;
+}
+.catalog_anim_act_remove {
+  animation: catalog_anim_up 0.2s forwards;
+}
+
+.catalog {
+  position: absolute;
+  top: -700%;
+  width: 100%;
+  height: fit-content;
+  padding: 30px 0;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  &::after {
+    position: absolute;
+    bottom: -200px;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(rgb(232, 232, 232), transparent);
+  }
+  .dash {
+    width: 20%;
+    height: 100%;
+    div {
+      width: 100%;
+      margin-left: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 5px;
+      &:hover {
+        color: #5000aa;
+        background-color: rgb(219, 219, 219);
+      }
+      .left {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 5px;
+        img {
+          width: 25px;
+          height: 25px;
+          object-fit: contain;
+        }
+        h3 {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+      img {
+        width: 25px;
+        height: 25px;
+        object-fit: cover;
+      }
+    }
+    .chose {
+      color: #5000aa;
+    }
+  }
+  .content {
+    width: 80%;
+    height: 100%;
+    padding: 0 50px;
+    .content_about {
+      transition: all 0.2s ease;
+      display: none;
+      width: 100%;
+      .top {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        padding-bottom: 20px;
+        img {
+          padding-top: 5px;
+          width: 35px;
+          height: 35px;
+          object-fit: cover;
+        }
+        h2 {
+          font-size: 20px;
+          font-weight: 500;
+          padding-top: 5px;
+        }
+      }
+      .types {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: start;
+        align-items: start;
+        row-gap: 30px;
+        .block {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          align-items: start;
+          gap: 5px;
+          text-align: left;
+          a {
+            text-decoration: none;
+            h3 {
+              font-size: 16px;
+              font-weight: 500;
+              color: black;
+              padding-bottom: 10px;
+              transition: all 0.2s ease;
+              &:hover {
+                color: #5000aa;
+              }
+            }
+            p {
+              font-size: 14px;
+              font-weight: 400;
+              color: gray;
+              transition: all 0.2s ease;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 3px;
+              &:hover {
+                color: #5000aa;
+              }
+              img {
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

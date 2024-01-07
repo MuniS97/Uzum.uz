@@ -1,0 +1,20 @@
+@media (max-width: 1300px) {
+  .all_goods {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 950px) {
+  .all_goods {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .all_goods {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .all_goods {
+    grid-template-columns: repeat(1, 300px);
+  }
+}

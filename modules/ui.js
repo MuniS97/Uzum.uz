@@ -166,6 +166,44 @@ export function main_header_create(place) {
     }, 0);
   };
   topInputCancel.onclick = () => (topInput.value = "");
+  setTimeout(() => {
+    let search_modal = document.querySelector(".search_modal");
+    let search_modal_exit = document.querySelector(".search_modal .modal h3");
+    let search_btn = document.querySelector("main .header .top .center div");
+    topInput.onfocus = () => {
+      search_modal.classList.remove("catalog_anim_act_remove");
+      search_modal.classList.add("catalog_anim_act");
+    };
+
+    search_modal_exit.onclick = () => {
+      search_modal.classList.remove("catalog_anim_act");
+      search_modal.classList.add("catalog_anim_act_remove");
+    };
+
+    search_btn.onclick = () => {
+      let value = topInput.value.toLocaleLowerCase().trim();
+      getData("/goods").then((res) => {
+        let filtered = res.data.filter((item) => {
+          let title = item.title.toLocaleLowerCase().trim();
+
+          if (title.includes(value)) {
+            return item;
+          }
+        });
+        search_reload(search_modal, false, filtered);
+      });
+    };
+    topInput.onblur = () => {
+      search_reload(search_modal, true);
+    };
+    let cancel_btn = document.querySelector(
+      "main .header .top .center .cancel"
+    );
+    cancel_btn.onclick = () => {
+      topInput.value = "";
+      search_reload(search_modal, true);
+    };
+  }, 0);
 
   let catalog = document.querySelector(".catalog");
   topBtn.onclick = () => {
@@ -222,6 +260,21 @@ export function media_header() {
   div3.append(div3Img, div3Text);
   div4.append(div4Img, div4Text);
   document.body.append(block);
+  div.onclick = () => {
+    location.assign("/");
+  };
+
+  div1.onclick = () => {};
+
+  div2.onclick = () => {
+    location.assign("/pages/card/");
+  };
+
+  div3.onclick = () => {
+    location.assign("/pages/wishes/");
+  };
+
+  div4.onclick = () => {};
 }
 
 export function footer_create(place) {
@@ -650,13 +703,31 @@ export function reload_about_good(object, place) {
     desc.classList.remove("show");
     views.classList.add("show");
   };
+  let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+  if (wishes.includes(object.id)) {
+    wishImg.src = "/public/img/wished_like.svg";
+  } else {
+    wishImg.src = "/public/img/like.svg";
+  }
+
+  wishImg.onclick = () => {
+    let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
+    if (wishes.includes(object.id)) {
+      wishes = wishes.filter((id) => id !== object.id);
+      localStorage.setItem("wishes", JSON.stringify([...wishes]));
+      wishImg.src = "/public/img/like.svg";
+      return;
+    }
+    localStorage.setItem("wishes", JSON.stringify([...wishes, object.id]));
+    wishImg.src = "/public/img/wished_like.svg";
+  };
 }
 
 export function busket_count(busk, count) {
-  if (busk.length === 0) {
-    count.classList.add("hide");
+  if (busk?.length === 0) {
+    count?.classList.add("hide");
   } else {
-    count.classList.remove("hide");
+    count?.classList.remove("hide");
     count.innerHTML = busk.length;
   }
 }
@@ -763,7 +834,6 @@ export function reload_card_item(ids, place, total_v, place1, none) {
         setTimeout(() => {
           let goodsCount = document.querySelector("main .header .right a span");
           busket_count(cards, goodsCount);
-          console.log(temp);
           if (temp.length === 1) {
             text.classList.remove("show");
           }
@@ -2361,4 +2431,187 @@ export function region_modal_reload(place) {
     <div class="regions"></div>
   </div>
   `;
+}
+
+let preveuosSearch = ["Maska", "Telephone", "Book"];
+
+export function search_reload(place, plite, arr) {
+  place.innerHTML = "";
+
+  if (plite) {
+    let modal = document.createElement("div");
+    let exit = document.createElement("h3");
+    let prev_block = document.createElement("div");
+    let prev = document.createElement("h2");
+    let prev_clear = document.createElement("p");
+    let prev_content = document.createElement("div");
+    let popular_block = document.createElement("div");
+    let popular = document.createElement("h2");
+    let popular_content = document.createElement("div");
+
+    modal.classList.add("modal");
+    prev_block.classList.add("block");
+    popular_block.classList.add("block");
+    prev_content.classList.add("content");
+    popular_content.classList.add("content");
+
+    exit.innerHTML = "&times;";
+    prev.innerHTML = "Вы недавно искали";
+    prev_clear.innerHTML = "Очистить";
+    popular.innerHTML = "Популярное";
+
+    prev_content.innerHTML = "";
+    for (let item of preveuosSearch) {
+      let block = document.createElement("div");
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      let p = document.createElement("p");
+      let exit = document.createElement("p");
+
+      block.classList.add("block");
+      block.classList.add("prev");
+
+      img.src = "/public/img/search_time.svg";
+      p.innerHTML = item;
+      exit.innerHTML = "&times;";
+
+      prev_content.append(block);
+      block.append(div, exit);
+      div.append(img, p);
+      exit.onclick = () => {
+        preveuosSearch = preveuosSearch.filter((search) => search !== item);
+        block.remove();
+      };
+      prev_clear.onclick = () => {
+        preveuosSearch = [];
+        document.querySelectorAll(".prev").forEach((block) => block.remove());
+      };
+    }
+    popular_content.innerHTML = "";
+    getData("/goods").then((res) => {
+      if (res.status !== 200 && res.status !== 201) return;
+      for (let item of res.data.slice(0, 5)) {
+        let block = document.createElement("div");
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let p = document.createElement("p");
+        let exit = document.createElement("p");
+
+        block.classList.add("block");
+
+        img.src = "/public/img/headerSearch.svg";
+        p.innerHTML = item.title.slice(0, 5) + "...";
+        exit.innerHTML = "&times;";
+
+        popular_content.append(block);
+        block.append(div, exit);
+        div.append(img, p);
+        exit.onclick = () => {
+          block.remove();
+        };
+      }
+    });
+
+    place.append(modal);
+    modal.append(
+      exit,
+      prev_block,
+      prev_content,
+      popular_block,
+      popular_content
+    );
+    prev_block.append(prev, prev_clear);
+    popular_block.append(popular);
+  } else {
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+    for (let item of arr.slice(0, 5)) {
+      let block = document.createElement("div");
+      let img = document.createElement("img");
+      let div = document.createElement("div");
+      let title = document.createElement("p");
+      let p = document.createElement("p");
+
+      block.classList.add("block2");
+      title.classList.add("title");
+      p.classList.add("more");
+
+      img.src = item.media[0];
+      title.innerHTML = item.title;
+      p.innerHTML = "Подробнее";
+
+      modal.append(block);
+      block.append(img, div);
+      div.append(title, p);
+
+      p.onclick = () => {
+        location.assign("/pages/good/?good_id=" + item.id);
+      };
+    }
+    place.append(modal);
+  }
+}
+
+export function min_search(place) {
+  let search_modal = document.querySelector(".search_modal");
+  let search_modal_exit = document.querySelector(".search_modal .modal h3");
+
+  let main_block = document.createElement("div");
+  let top_block = document.createElement("div");
+  let bottom_block = document.createElement("div");
+  let t_b_left = document.createElement("div");
+  let t_b_l_img = document.createElement("img");
+  let t_b_l_div = document.createElement("div");
+  let t_b_l_title = document.createElement("h3");
+  let t_b_l_p = document.createElement("p");
+  let t_b_right_button = document.createElement("button");
+  let b_b_input = document.createElement("input");
+  let b_b_i_img = document.createElement("img");
+
+  main_block.classList.add("min_search");
+  top_block.classList.add("top_block");
+  bottom_block.classList.add("bottom_block");
+  t_b_left.classList.add("t_b_left");
+  t_b_right_button.classList.add("t_b_right_button");
+
+  t_b_l_img.src = "/public/logo.svg";
+  t_b_l_title.innerHTML = "Uzum Market";
+  t_b_l_p.innerHTML = "Скачать приложение";
+  b_b_input.placeholder = "Искать товары";
+  t_b_right_button.innerHTML = "Cкачать";
+  b_b_i_img.src = "/public/img/headerSearch.svg";
+
+  place.append(main_block);
+  main_block.append(top_block, bottom_block);
+  top_block.append(t_b_left, t_b_right_button);
+  t_b_left.append(t_b_l_img, t_b_l_div);
+  t_b_l_div.append(t_b_l_title, t_b_l_p);
+  bottom_block.append(b_b_input, b_b_i_img);
+
+  b_b_input.onfocus = () => {
+    search_modal.classList.remove("catalog_anim_act_remove");
+    search_modal.classList.add("catalog_anim_act");
+  };
+  search_modal_exit.onclick = () => {
+    console.log("click");
+    search_modal.classList.remove("catalog_anim_act");
+    search_modal.classList.add("catalog_anim_act_remove");
+  };
+
+  b_b_input.onkeyup = () => {
+    let value = b_b_input.value.toLocaleLowerCase().trim();
+    getData("/goods").then((res) => {
+      let filtered = res.data.filter((item) => {
+        let title = item.title.toLocaleLowerCase().trim();
+
+        if (title.includes(value)) {
+          return item;
+        }
+      });
+      search_reload(search_modal, false, filtered);
+    });
+  };
+  b_b_input.onblur = () => {
+    search_reload(search_modal, true);
+  };
 }

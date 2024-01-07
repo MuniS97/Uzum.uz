@@ -7,9 +7,11 @@ import {
   main_header_create,
   media_header,
   min_footer,
+  min_search,
   region_modal_reload,
   regions_reload,
   reload_goods,
+  search_reload,
 } from "./modules/ui";
 
 let header = document.querySelector("header .content");
@@ -22,6 +24,7 @@ let forTop = document.querySelector(".forTop");
 let catalog = document.querySelector(".catalog");
 let contact_modal = document.querySelector(".modal_contacts");
 let region_modal = document.querySelector(".modal_regions");
+let search_modal = document.querySelector(".search_modal");
 
 let discountGoods = [];
 let devices = [];
@@ -30,12 +33,14 @@ let furnitures = [];
 catalog_reload(catalog);
 contact_modal_reload(contact_modal);
 region_modal_reload(region_modal);
+search_reload(search_modal, true);
 
 if (window.innerWidth >= 950) {
   header_create(header);
   main_header_create(mainHeader);
 } else {
   media_header();
+  min_search(header);
 }
 
 if (window.innerWidth <= 500) {
@@ -162,7 +167,6 @@ setTimeout(() => {
 
   // modal_regions
   let regionsPlace = document.querySelector(".regions");
-  console.log(regionsPlace);
   let region = document.querySelector("header .left a span");
   let regionsModalActive = document.querySelectorAll("[data-regions]");
   let regionsModal = document.querySelector(".modal_regions");

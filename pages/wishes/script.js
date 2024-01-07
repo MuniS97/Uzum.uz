@@ -7,9 +7,11 @@ import {
   main_header_create,
   media_header,
   min_footer,
+  min_search,
   region_modal_reload,
   regions_reload,
   reload_goods,
+  search_reload,
   wishes_checking,
 } from "../../modules/ui";
 
@@ -25,6 +27,8 @@ let discountGoods = [];
 let catalog = document.querySelector(".catalog");
 let contact_modal = document.querySelector(".modal_contacts");
 let region_modal = document.querySelector(".modal_regions");
+let search_modal = document.querySelector(".search_modal");
+search_reload(search_modal, true);
 catalog_reload(catalog);
 contact_modal_reload(contact_modal);
 region_modal_reload(region_modal);
@@ -38,6 +42,7 @@ if (window.innerWidth >= 950) {
   main_header_create(mainHeader);
 } else {
   media_header();
+  min_search(header);
 }
 if (window.innerWidth <= 500) {
   min_footer(footer);

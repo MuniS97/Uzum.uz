@@ -291,6 +291,11 @@
           cursor: pointer;
           border: none;
         }
+        .chose_btn {
+          color: #7000ff;
+          background-color: white;
+          border: 1px solid #7000ff;
+        }
         .buy_one_click {
           display: flex;
           width: 300px;
@@ -316,10 +321,10 @@
         align-items: center;
         border-radius: 8px;
         background: rgba(255, 228, 51, 0.3);
-          color: #141415;
-          font-family: Roboto;
-          font-size: 14px;
-          font-weight: 400;
+        color: #141415;
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 400;
       }
     }
   }

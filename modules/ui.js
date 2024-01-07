@@ -721,6 +721,31 @@ export function reload_about_good(object, place) {
     localStorage.setItem("wishes", JSON.stringify([...wishes, object.id]));
     wishImg.src = "/public/img/wished_like.svg";
   };
+
+  let card = JSON.parse(localStorage.getItem("card")) || [];
+  if (card.includes(object.id)) {
+    add_busket_btn.classList.add("chose_btn");
+    add_busket_btn.innerHTML = "Удалить из карзины";
+  } else {
+    add_busket_btn.classList.remove("chose_btn");
+    add_busket_btn.innerHTML = "Добавить в корзину";
+  }
+
+  add_busket_btn.onclick = () => {
+    let card = JSON.parse(localStorage.getItem("card")) || [];
+    if (card.includes(object.id)) {
+      card = card.filter((id) => id !== object.id);
+      localStorage.setItem("card", JSON.stringify([...card]));
+      add_busket_btn.classList.remove("chose_btn");
+      add_busket_btn.innerHTML = "Добавить в корзину";
+      alert("Удалено из корзины");
+      return;
+    }
+    localStorage.setItem("card", JSON.stringify([...card, object.id]));
+    add_busket_btn.classList.add("chose_btn");
+    add_busket_btn.innerHTML = "Удалить из карзины";
+    alert("Добавлено в корзину");
+  };
 }
 
 export function busket_count(busk, count) {

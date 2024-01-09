@@ -10,7 +10,7 @@ export default defineConfig({
         card: resolve(__dirname, "pages/card/index.html"),
         deliveryPoints: resolve(__dirname, "pages/deliveryPoints/index.html"),
         good: resolve(__dirname, "pages/good/index.html"),
-        wishes: resolve(__dirname, "pages/good/index.html"),
+        wishes: resolve(__dirname, "pages/wishes/index.html"),
       },
     },
   },

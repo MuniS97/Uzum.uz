@@ -27,13 +27,13 @@ export function header_create(place) {
     navigator.geolocation.length > 0
       ? `Город: <span>${navigator.geolocation}</span>`
       : `Город: <span>${region}</span>`;
-  cityImg.src = "/public/img/headerLocal.svg";
+  cityImg.src = "/img/headerLocal.svg";
   give.innerHTML = "Пункты выдачи";
   desc.innerHTML = "Доставим ваш заказ бесплатно — всего за 1 день!";
   support.innerHTML = "Вопрос-ответ";
   orders.innerHTML = "Мои заказы";
   language.innerHTML = "Русский";
-  languageImg.src = "/public/img/headerLang.svg";
+  languageImg.src = "/img/headerLang.svg";
 
   place.append(left, desc, right);
   left.append(city, give);
@@ -104,18 +104,18 @@ export function main_header_create(place) {
 
   topRightFavorites.href = "/pages/wishes/";
   topRightCard.href = "/pages/card/";
-  topLogo.src = "/public/img/headerLogo.svg";
+  topLogo.src = "/img/headerLogo.svg";
   topBtn.innerHTML = "Каталог";
-  topBtnImg.src = "/public/img/headerCatalog.svg";
+  topBtnImg.src = "/img/headerCatalog.svg";
   topInput.placeholder = "Искать товары и категории";
-  topInputdivImg.src = "/public/img/headerSearch.svg";
+  topInputdivImg.src = "/img/headerSearch.svg";
   topRightLoginText.innerHTML = "Войти";
   topRightFavoritesText.innerHTML = "Избранное";
   topRightCardText.innerHTML = "Корзина";
-  topRightLoginImg.src = "/public/img/headerUser.svg";
-  topRightFavoritesImg.src = "/public/img/headerFavorites.svg";
-  topRightCardImg.src = "/public/img/headerCard.svg";
-  topInputCancel.src = "/public/img/headerCancel.svg";
+  topRightLoginImg.src = "/img/headerUser.svg";
+  topRightFavoritesImg.src = "/img/headerFavorites.svg";
+  topRightCardImg.src = "/img/headerCard.svg";
+  topInputCancel.src = "/img/headerCancel.svg";
   bottomP.innerHTML = "Рассрочка";
   bottomP1.innerHTML = "Электроника";
   bottomP2.innerHTML = "Бытовая техника";
@@ -127,8 +127,8 @@ export function main_header_create(place) {
   bottomP8.innerHTML = "Товары для дома";
   bottomP9.innerHTML = "Строительство и ремонт";
   bottomP10.innerHTML = "Ещё";
-  bottomPImg.src = "/public/img/headerUnion.png";
-  bottomP10Img.src = "/public/img/headerArrow.svg";
+  bottomPImg.src = "/img/headerUnion.png";
+  bottomP10Img.src = "/img/headerArrow.svg";
   topRightCardCount.innerHTML = busket.length;
 
   place.append(top, bottom);
@@ -205,13 +205,13 @@ export function main_header_create(place) {
       catalog.classList.remove("catalog_anim_act");
       catalog.classList.add("catalog_anim_act_remove");
       setTimeout(() => {
-        topBtnImg.src = "/public/img/headerCatalog.svg";
+        topBtnImg.src = "/img/headerCatalog.svg";
       }, 100);
       return;
     }
     catalog.classList.remove("catalog_anim_act_remove");
     setTimeout(() => {
-      topBtnImg.src = "/public/img/catalog_x.svg";
+      topBtnImg.src = "/img/catalog_x.svg";
     }, 100);
     catalog.classList.add("catalog_anim_act");
   };
@@ -236,15 +236,15 @@ export function media_header() {
   let div4Text = document.createElement("p");
 
   block.classList.add("media_header");
-  divImg.src = "/public/logo.svg";
+  divImg.src = "/logo.svg";
   divText.innerHTML = "Главная";
-  div1Img.src = "/public/img/headerSearch.svg";
+  div1Img.src = "/img/headerSearch.svg";
   div1Text.innerHTML = "Каталог";
-  div2Img.src = "/public/img/headerCard.svg";
+  div2Img.src = "/img/headerCard.svg";
   div2Text.innerHTML = "Корзина";
-  div3Img.src = "/public/img/headerFavorites.svg";
+  div3Img.src = "/img/headerFavorites.svg";
   div3Text.innerHTML = "Избранное";
-  div4Img.src = "/public/img/headerUser.svg";
+  div4Img.src = "/img/headerUser.svg";
   div4Text.innerHTML = "Кабинет";
 
   block.append(div, div1, div2, div3, div4);
@@ -294,22 +294,22 @@ export function footer_create(place) {
       <div>
           <a href="https://apps.apple.com/ru/app/uzum-market-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD/id1640483056" target="_blank">
           <div>
-            <img src="/public/img/footerApple.svg" alt="apple" />
+            <img src="/img/footerApple.svg" alt="apple" />
           <p>AppStore</p>
           </div>
           </a>
           <a href="https://play.google.com/store/apps/details?id=uz.uzum.app&pli=1" target="_blank"><div>
-          <img src="/public/img/footerPlay.svg" alt="play_market" />
+          <img src="/img/footerPlay.svg" alt="play_market" />
             <p>Google Play
             </p>
             </div></a>
       </div>
       <h3>Uzum в соцсетях</h3>
       <div>
-            <a href="https://www.instagram.com/uzum.market/" target="_blank"><div><img src="/public/img/footerInstagram.svg" alt="media" /></div></a>
-            <a href="https://t.me/uzum_market" target="_blank"><div><img src="/public/img/footerTelegram.svg" alt="media" /></div></a>
-            <a href="https://www.youtube.com/channel/UCY3nNF2MUDKHrELA6LzbnHA" target="_blank"><div><img src="/public/img/footerYoutube.svg" alt="media" /></div></a>
-            <a href="https://www.facebook.com/uzummarket" target="_blank"><div><img src="/public/img/footerFacebook.svg" alt="media" /></div></a>
+            <a href="https://www.instagram.com/uzum.market/" target="_blank"><div><img src="/img/footerInstagram.svg" alt="media" /></div></a>
+            <a href="https://t.me/uzum_market" target="_blank"><div><img src="/img/footerTelegram.svg" alt="media" /></div></a>
+            <a href="https://www.youtube.com/channel/UCY3nNF2MUDKHrELA6LzbnHA" target="_blank"><div><img src="/img/footerYoutube.svg" alt="media" /></div></a>
+            <a href="https://www.facebook.com/uzummarket" target="_blank"><div><img src="/img/footerFacebook.svg" alt="media" /></div></a>
       </div>
       </div>
     </div>
@@ -347,16 +347,16 @@ export function min_footer(place) {
   </div>
   <div class="apps">
     <h3>Скачать приложение</h3>
-    <a href="https://apps.apple.com/ru/app/uzum-market-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD/id1640483056" target="_blank"><img src="/public/img/footerApp (1).png" alt="app" /></a>
-    <a href="https://play.google.com/store/apps/details?id=uz.uzum.app&pli=1" target="_blank"><img src="/public/img/footerApp (2).png" alt="app" /></a>
+    <a href="https://apps.apple.com/ru/app/uzum-market-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD/id1640483056" target="_blank"><img src="/img/footerApp (1).png" alt="app" /></a>
+    <a href="https://play.google.com/store/apps/details?id=uz.uzum.app&pli=1" target="_blank"><img src="/img/footerApp (2).png" alt="app" /></a>
   </div>
   <div class="socials">
     <h3>Uzum в соцсетях</h3>
     <div>
-      <div><img src="/public/img/footerInstagram.svg" alt="media" /></div>
-      <div><img src="/public/img/footerTelegram.svg" alt="media" /></div>
-      <div><img src="/public/img/footerYoutube.svg" alt="media" /></div>
-      <div><img src="/public/img/footerFacebook.svg" alt="media" /></div>
+      <div><img src="/img/footerInstagram.svg" alt="media" /></div>
+      <div><img src="/img/footerTelegram.svg" alt="media" /></div>
+      <div><img src="/img/footerYoutube.svg" alt="media" /></div>
+      <div><img src="/img/footerFacebook.svg" alt="media" /></div>
     </div>
   </div>
   <div class="more">
@@ -399,17 +399,17 @@ export function reload_goods(arr, place, text) {
     overallPriceCircle.classList.add("circle");
 
     img.src = item.media[0];
-    imgLike.src = "/public/img/like.svg";
+    imgLike.src = "/img/like.svg";
     imgtext.innerHTML = text;
     item.title.length < 40
       ? (title.innerHTML = item.title)
       : (title.innerHTML = item.title.slice(0, 40) + " ...");
-    ratingImg.src = "/public/img/star.svg";
+    ratingImg.src = "/img/star.svg";
     raitngText.innerHTML = item.rating + ` (${item.rating} баллов)`;
     partPayment.innerHTML = Math.round(discountPrice / 12) + "сум/мес";
     overallPricePriceP.innerHTML = item.price + " сум";
     overallPricePriceH4.innerHTML = Math.round(discountPrice) + " сум";
-    overallPriceCircleImg.src = "/public/img/card.svg";
+    overallPriceCircleImg.src = "/img/card.svg";
 
     place.append(good);
     good.append(div, title, rating, partPayment, overallPrice);
@@ -425,9 +425,9 @@ export function reload_goods(arr, place, text) {
 
     let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
     if (wishes.includes(item.id)) {
-      imgLike.src = "/public/img/wished_like.svg";
+      imgLike.src = "/img/wished_like.svg";
     } else {
-      imgLike.src = "/public/img/like.svg";
+      imgLike.src = "/img/like.svg";
     }
 
     imgLike.onclick = () => {
@@ -435,7 +435,7 @@ export function reload_goods(arr, place, text) {
       if (wishes.includes(item.id)) {
         wishes = wishes.filter((id) => id !== item.id);
         localStorage.setItem("wishes", JSON.stringify([...wishes]));
-        imgLike.src = "/public/img/like.svg";
+        imgLike.src = "/img/like.svg";
         good.remove();
         setTimeout(() => {
           let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
@@ -447,7 +447,7 @@ export function reload_goods(arr, place, text) {
       }
       localStorage.setItem("wishes", JSON.stringify([...wishes, item.id]));
       setTimeout(() => {
-        imgLike.src = "/public/img/wished_like.svg";
+        imgLike.src = "/img/wished_like.svg";
         let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
         let wishesPlace = document.querySelector(".all_goods");
         let none_wishes_block = document.querySelector(".none_block");
@@ -619,22 +619,22 @@ export function reload_about_good(object, place) {
   colors_div.classList.add("colors_div");
 
   img.src = object.media[0];
-  rating.innerHTML = `<img src="/public/img/star.svg">${object.rating}(15 отзывов)`;
+  rating.innerHTML = `<img src="/img/star.svg">${object.rating}(15 отзывов)`;
   order_count.innerHTML = "Более 1000 заказов";
-  wishImg.src = "/public/img/like.svg";
+  wishImg.src = "/img/like.svg";
   wishP.innerHTML = "В желания";
   title.innerHTML = object.title;
   sailer_title.innerHTML = "Продавец:";
   sailer.innerHTML = "--";
   delivery_title.innerHTML = "Доставка:";
-  delivery_title_img.src = "/public/img/good_deliver.svg";
+  delivery_title_img.src = "/img/good_deliver.svg";
   delivery.innerHTML = "1 день, бесплатно";
   colorsP.innerHTML = "Цвет:";
   countP.innerHTML = "Количество:";
   minus.innerHTML = "&minus;";
   count.innerHTML = "1";
   plus.innerHTML = "&plus;";
-  overall_img.src = "/public/img/good_count_img.svg";
+  overall_img.src = "/img/good_count_img.svg";
   overallP.innerHTML = "Осталось всего 9900..";
   priceP.innerHTML = "Цена:";
   discount_price.innerHTML = Math.round(dis_price) + " сум";
@@ -643,10 +643,10 @@ export function reload_about_good(object, place) {
   part_p.innerHTML = `<span>От ${Math.round(
     dis_price / 12
   )} сум/мес</span> в рассрочку`;
-  part_img.src = "/public/img/titleArrow.svg";
+  part_img.src = "/img/titleArrow.svg";
   add_busket_btn.innerHTML = "Добавить в корзину";
   buy_one_click.innerHTML = "Купить в 1 клик";
-  people_bought.innerHTML = `<img src="/public/img/good_bought.svg">4217 человек купили на этой неделе`;
+  people_bought.innerHTML = `<img src="/img/good_bought.svg">4217 человек купили на этой неделе`;
   descP.innerHTML = "Описание";
   viewsP.innerHTML = "Отзывы (15)";
   desc.innerHTML = object.description;
@@ -699,9 +699,9 @@ export function reload_about_good(object, place) {
   };
   let wishes = JSON.parse(localStorage.getItem("wishes")) || [];
   if (wishes.includes(object.id)) {
-    wishImg.src = "/public/img/wished_like.svg";
+    wishImg.src = "/img/wished_like.svg";
   } else {
-    wishImg.src = "/public/img/like.svg";
+    wishImg.src = "/img/like.svg";
   }
 
   wishImg.onclick = () => {
@@ -709,11 +709,11 @@ export function reload_about_good(object, place) {
     if (wishes.includes(object.id)) {
       wishes = wishes.filter((id) => id !== object.id);
       localStorage.setItem("wishes", JSON.stringify([...wishes]));
-      wishImg.src = "/public/img/like.svg";
+      wishImg.src = "/img/like.svg";
       return;
     }
     localStorage.setItem("wishes", JSON.stringify([...wishes, object.id]));
-    wishImg.src = "/public/img/wished_like.svg";
+    wishImg.src = "/img/wished_like.svg";
   };
 
   let card = JSON.parse(localStorage.getItem("card")) || [];
@@ -868,150 +868,150 @@ export function catalog_reload(place) {
   <div class="dash">
   <div>
     <div class="left">
-      <img src="/public/img/headerUnion.png" alt="union" />
+      <img src="/img/headerUnion.png" alt="union" />
       <h3>Рассрочка</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog1.svg" alt="" />
+      <img src="/img/catalog1.svg" alt="" />
       <h3>Электроника</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog2.svg" alt="" />
+      <img src="/img/catalog2.svg" alt="" />
       <h3>Бытовая техника</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog3.svg" alt="" />
+      <img src="/img/catalog3.svg" alt="" />
       <h3>Одежда</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog4.svg" alt="" />
+      <img src="/img/catalog4.svg" alt="" />
       <h3>Обувь</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog5.svg" alt="" />
+      <img src="/img/catalog5.svg" alt="" />
       <h3>Аксессуары</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog6.svg" alt="" />
+      <img src="/img/catalog6.svg" alt="" />
       <h3>Красота и уход</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog19.svg" alt="" />
+      <img src="/img/catalog19.svg" alt="" />
       <h3>Здоровье</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog7.svg" alt="" />
+      <img src="/img/catalog7.svg" alt="" />
       <h3>Товары для дома</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog8.svg" alt="" />
+      <img src="/img/catalog8.svg" alt="" />
       <h3>Строительство и ремонт</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog9.svg" alt="" />
+      <img src="/img/catalog9.svg" alt="" />
       <h3>Автотовары</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog10.svg" alt="" />
+      <img src="/img/catalog10.svg" alt="" />
       <h3>Детские товары</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog11.svg" alt="" />
+      <img src="/img/catalog11.svg" alt="" />
       <h3>Хобби и творчество</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog12.svg" alt="" />
+      <img src="/img/catalog12.svg" alt="" />
       <h3>Спорт и отдых</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog13.svg" alt="" />
+      <img src="/img/catalog13.svg" alt="" />
       <h3>Продукты питания</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog14.svg" alt="" />
+      <img src="/img/catalog14.svg" alt="" />
       <h3>Бытовая химия</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog15.svg" alt="" />
+      <img src="/img/catalog15.svg" alt="" />
       <h3>Канцтовары</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog16.svg" alt="" />
+      <img src="/img/catalog16.svg" alt="" />
       <h3>Зоотовары</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog17.svg" alt="" />
+      <img src="/img/catalog17.svg" alt="" />
       <h3>Книги</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
   <div>
     <div class="left" data-categ>
-      <img src="/public/img/catalog18.svg" alt="" />
+      <img src="/img/catalog18.svg" alt="" />
       <h3>Дача, сад и огород</h3>
     </div>
-    <img src="/public/img/titleArrow.svg" alt="arrow" />
+    <img src="/img/titleArrow.svg" alt="arrow" />
   </div>
 </div>
 <div class="content">
   <div class="content_about">
     <div class="top">
       <h2>Электроника</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1116,7 +1116,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Бытовая техника</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1178,7 +1178,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Одежда</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1245,7 +1245,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Обувь</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1309,7 +1309,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Аксессуары</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1395,7 +1395,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Красота и уход</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1484,7 +1484,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Здоровье</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1554,7 +1554,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Товары для дома</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1628,7 +1628,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Строительство и ремонт</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1711,7 +1711,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Автотовары</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1794,7 +1794,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Детские товары</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1866,7 +1866,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Хобби и творчество</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -1937,7 +1937,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Спорт и отдых</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2012,7 +2012,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Продукты питания</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2077,7 +2077,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Бытовая химия</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2143,7 +2143,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Канцтовары</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2231,7 +2231,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Зоотовары</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2295,7 +2295,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Книги</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2355,7 +2355,7 @@ export function catalog_reload(place) {
   <div class="content_about">
     <div class="top">
       <h2>Дача, сад и огород</h2>
-      <img src="/public/img/titleArrow.svg" alt="arrow" />
+      <img src="/img/titleArrow.svg" alt="arrow" />
     </div>
     <div class="types">
       <div class="block">
@@ -2494,7 +2494,7 @@ export function search_reload(place, plite, arr) {
       block.classList.add("block");
       block.classList.add("prev");
 
-      img.src = "/public/img/search_time.svg";
+      img.src = "/img/search_time.svg";
       p.innerHTML = item;
       prev_exit.innerHTML = "&times;";
 
@@ -2522,7 +2522,7 @@ export function search_reload(place, plite, arr) {
 
         block.classList.add("block");
 
-        img.src = "/public/img/headerSearch.svg";
+        img.src = "/img/headerSearch.svg";
         p.innerHTML = item.title.slice(0, 5) + "...";
         popular_exit.innerHTML = "&times;";
 
@@ -2597,12 +2597,12 @@ export function min_search(place) {
   t_b_left.classList.add("t_b_left");
   t_b_right_button.classList.add("t_b_right_button");
 
-  t_b_l_img.src = "/public/logo.svg";
+  t_b_l_img.src = "/logo.svg";
   t_b_l_title.innerHTML = "Uzum Market";
   t_b_l_p.innerHTML = "Скачать приложение";
   b_b_input.placeholder = "Искать товары";
   t_b_right_button.innerHTML = "Cкачать";
-  b_b_i_img.src = "/public/img/headerSearch.svg";
+  b_b_i_img.src = "/img/headerSearch.svg";
 
   place.append(main_block);
   main_block.append(top_block, bottom_block);

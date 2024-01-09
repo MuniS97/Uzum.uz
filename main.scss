@@ -1133,20 +1133,18 @@ footer {
     box-shadow: 0 0 1px black;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
+    align-items: end;
     gap: 5px;
     background-color: white;
-    padding: 20px 0;
+    padding: 10px 0 20px;
     position: relative;
     .exit {
       cursor: pointer;
-      // position: absolute;
-      right: 20px;
-      top: 3px;
       font-size: 25px;
       font-weight: 500;
       z-index: 1;
+      padding-right: 20px;
     }
     .block2 {
       width: 100%;

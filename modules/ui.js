@@ -168,18 +168,10 @@ export function main_header_create(place) {
   topInputCancel.onclick = () => (topInput.value = "");
   setTimeout(() => {
     let search_modal = document.querySelector(".search_modal");
-    let search_modal_exit = document.querySelector(
-      ".search_modal .modal .exit"
-    );
     let search_btn = document.querySelector("main .header .top .center div");
     topInput.onfocus = () => {
       search_modal.classList.remove("catalog_anim_act_remove");
       search_modal.classList.add("catalog_anim_act");
-    };
-
-    search_modal_exit.onclick = () => {
-      search_modal.classList.remove("catalog_anim_act");
-      search_modal.classList.add("catalog_anim_act_remove");
     };
 
     search_btn.onclick = () => {
@@ -2487,11 +2479,10 @@ export function search_reload(place, plite, arr) {
     prev.innerHTML = "Вы недавно искали";
     prev_clear.innerHTML = "Очистить";
     popular.innerHTML = "Популярное";
-    // main_exit.onclick = () => {
-    //   console.log("click");
-    //   // place.classList.remove("catalog_anim_act");
-    //   place.classList.add("catalog_anim_act_remove");
-    // };
+    main_exit.onclick = () => {
+      place.classList.remove("catalog_anim_act");
+      place.classList.add("catalog_anim_act_remove");
+    };
     prev_content.innerHTML = "";
     for (let item of preveuosSearch) {
       let block = document.createElement("div");
@@ -2538,7 +2529,7 @@ export function search_reload(place, plite, arr) {
         popular_content.append(block);
         block.append(div, popular_exit);
         div.append(img, p);
-        exit.onclick = () => {
+        popular_exit.onclick = () => {
           block.remove();
         };
       }

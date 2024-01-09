@@ -22,6 +22,7 @@ export function header_create(place) {
   orders.dataset.contact = "";
   city.dataset.regions = "";
   give.setAttribute("href", "/pages/deliveryPoints/");
+  support.href = "https://uzum.uz/ru/faq"
 
   city.innerHTML =
     navigator.geolocation.length > 0
